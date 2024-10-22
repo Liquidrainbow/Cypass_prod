@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<title>Cypass - random password generator</title>
+	<meta name="description" content="Cypass password generator create secure passwords with fullrandom or pwgen algorithm to keep your passwords, accounts and files safe.">
+	<meta name="keywords" content="Password Generator, Online Password Generator, Random Password Generator, Secure Password Generator, Create Password, Generate Password, Pwgen, Pwgen algorithm">
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="main.css">
+	<script defer src="jq.js"></script>
+	<script defer src="main.js"></script>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+		(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		m[i].l=1*new Date();
+		for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+		k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+		ym(97253881, "init", {
+			clickmap:true,
+			trackLinks:true,
+			accurateTrackBounce:true
+		});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/97253881" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPC3CXB80G"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-ZPC3CXB80G');
+	</script>
+	<title>Cypass</title>
+</head>
+<body>
+<div class="gloal_wrapper">
+	<div class="glitch">
+		<div class="glitch-img"></div>
+		<div class="glitch-img"></div>
+		<div class="glitch-img"></div>
+		<div class="glitch-img"></div>
+		<div class="glitch-img"></div>
+	</div>
+	<div class="container" id="main">
+
+	<header>
+		<div class="header_block">
+			<div><a target="_self" href=""><img src="logo_0.png" alt="logo" class="logo"></a><h1>CYPASS</h1></div>
+		</div>
+		<div class="bot_header"><span>Password Generator</span></div>
+	</header>
+
+	<main>
+		<div id="radio-section">
+			<h3>Select generation mode:</h3>
+			<div class="inputblock">
+				<input type="radio" id="fullrand" name="passmode">
+				<label for="fullrand">Full random. Very stable, very difficult to remember</label>
+			</div>
+			<div class="inputblock">
+				<input type="radio" id="pwlen" name="passmode">
+				<label for="fullrand">Pronounceable password using pwgen algorithm. Very stable, possible to remember</label>
+			</div>
+		</div>
+		<div id="checkbox-section" class="section">
+			<h3>Use character sets:</h3>
+			<div class="inputblock">
+				<input type="checkbox" id="lowercase" name="lowercase" checked >
+				<label for="lowercase">Use lowercase letters (a-z)</label>
+			</div>
+			<div class="inputblock">
+				<input type="checkbox" id="uppercase" name="uppercase" checked >
+				<label for="uppercase">Use uppercase letters (A-Z)</label>
+			</div>
+			<div class="inputblock">
+				<input type="checkbox" id="numbers" name="numbers">
+				<label for="numbers">Use digits (0-9)</label>
+			</div>
+			<div class="inputblock">
+				<input type="checkbox" id="symbols" name="symbols">
+				<label for="symbols">Use other symbols (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</label>
+			</div>
+			<div class="inputblock">
+				<input type="checkbox" id="unique_symbols" name="unique_symbols">
+				<label for="unique_symbols">Use unique characters (don't use the same character more than once)</label>
+			</div>
+			<div class="inputblock">
+				<input type="checkbox" id="nosimilar" name="nosimilar">
+				<label for="nosimilar">Use no similar characters (don't use characters like i, l, 1, L, o, 0, O, etc.)</label>
+			</div>
+		</div>
+		<div class="inputblock">
+			<h3>Password length:</h3>
+			<input type="number" id="passlen" min="1" max="30" size="10" value="12">
+			<p class="pass_strenght">STRONG</p>
+			<h3>Number of passwords to generate:</h3>
+			<input type="number" id="passnum" min="1" max="30" size="10" value="10">
+		</div>
+		<div class="button">
+			<button id="genbutton" name="genbutton">Throw me some passwords!</button>
+		</div>
+		<div id="gen_results_name"><h2>YOUR PASSWORDS:</h2></div>
+		<div id="gendiv"></div>
+		<button id="copybutton">Copy all</button>
+	</main>
+
+	<footer>
+		<!--<div class="links_block">-->
+			<a href="hexrand.html" class="hex_redir"><img src="binary-code.png"></a>
+		<!--</div>-->
+		<a id="contact" href="mailto:piedcrust@gmail.com">Contact me</a>
+		<div class="special">
+			It doesn’t matter if I die here because I will live somewhere else, endless parallel universes, countless versions of me, I see myself in all times and spaces.
+		</div>
+	</footer>
+<!--
+Мы отправляемся в космос приготовленные ко всему, то есть к одиночеству, борьбе, страданиям и смерти. 
+Из скромности мы не говорим этого вслух, но думаем про себя, что мы великолепны. 
+А на самом деле, на самом деле это не всё и наша готовность оказывается недостаточной.
+Мы вовсе не хотим завоёвывать космос, хотим только расширить Землю до его границ.
+Одни планеты пустынны, как Сахара, другие покрыты льдом, как полюс, или жарки, как бразильские джунгли.
+Мы гуманны, благородны, мы не хотим покорять другие расы, хотим только передать им наши ценности и взамен принять их наследство.
+Мы считаем себя рыцарями святого Контакта. Это вторая ложь. Не ищем никого, кроме людей. Не нужно нам других миров.
+Нам нужно зеркало. Мы не знаем, что делать с иными мирами. Достаточно одного этого, и он-то нас уже угнетает.
+Мы хотим найти собственный, идеализированный образ, это должны быть миры с цивилизацией более совершенной, чем наша.
+В других надеемся найти изображение нашего примитивного прошлого, в то же время по ту сторону есть что-то, чего мы не принимаем, от чего защищаемся.
+А ведь мы принесли с Земли не только дистиллят добродетели, героический монумент Человека! Прилетели сюда такие, какие есть в действительности,
+и когда другая сторона показывает нам эту действительность — не можем с этим примириться.
+-->
+</div>
+</div>
+</body>
+</html>

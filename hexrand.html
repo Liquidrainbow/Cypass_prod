@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<title>HEXRND - random hex number generator</title>
+	<meta name="description" content="Cypass password generator create secure passwords with fullrandom or pwgen algorithm to keep your passwords, accounts and files safe.">
+	<meta name="keywords" content="Password Generator, Online Password Generator, Random Password Generator, Secure Password Generator, Create Password, Generate Password, Pwgen, Pwgen algorithm">
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="hexrand.css">
+	<script defer src="jq.js"></script>
+	<script defer src="hexrand.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+		<div class="glitch-img"></div>
+    <header>
+			<div class="logo_wrapper">
+				<div class="logo"><a target="_self" href=""><img src="binary-code.png"></a></div>
+				<h1>HEXRND</h1>
+			</div>
+			<span>Random hex number generator</span>
+    </header>
+
+    <main>
+			<p class="description">A random hexadecimal number generator can be useful if you're doing cross-browser testing. 
+			For example, you can generate random MD5 hashes (hex numbers of length 32) or random SHA1 git hashes 
+			(hex numbers of length 40). These values can be used as unique identifiers for cached files or temporary 
+			resources as the likelihood of long random hex value collisions is very low. Similarly, you can generate 
+			random hex numbers of a certain length to enter in forms to test form validation code, as well as use random 
+			hexadecimal values as random data.</p>
+
+			<p>Select the algorithm with which the hex number will be generated</p>
+			<p>Select lenght and quantity of numbers</p>
+			<p>Click on the "GENERATE" button</p>
+
+			<fieldset class="field">
+				<legend>Algorithms</legend>
+				<input type="radio" id="lcg" name="radio" checked/>
+				<label for="lcg">Linear congruential generator (LCG)</label>
+				<br/>
+				<input type="radio" id="xorshift" name="radio"/>
+				<label for="xorshift">Xorshift</label>
+				</br/>
+				<input type="radio" id="math" name="radio"/>
+				<label for="math">Java script Math.random</label>
+				</br/>
+				<input type="radio" id="crypt" name="radio"/>
+				<label for="crypt">Javascript Crypto</label>
+				<br>
+				<input type="radio" id="mersenne" name="radio"/>
+				<label for="mersenne">Mersenne Twister implementation in javascript</label>
+			</fieldset>
+			<div class="input_block">
+				<input type="number" id="digits" min="" max="" value="1">
+				<label>How many digits?</label>
+			</div>
+			<div class="input_block">
+				<input type="number" id="results" min="" max="" value="1">
+				<label>How many results?</label>
+			</div>
+			<div id="myModal" class="modal">
+				<div class="modal-content">
+					<div class="varning_head">
+						<p>Fatal error</p>
+						<span class="close">&times;</span>
+					</div>
+					<p class="modal_text">There is no mersenne twister right now... Add it later</p>
+				</div>
+			</div>
+			<button class="generate">Generate!</button>
+			<div class="output_text"><h2>Generated hex</h2></div>
+			<div id="output"></div>
+			<button id="copybutton">Copy all</button>
+    </main>
+    <footer>
+			<div class="links_block">
+				<a href="index.html" class="hex_redir"><img src="logo_0.png"></a>
+			</div>
+    </footer>
+  </div>
+</body>
+</html>

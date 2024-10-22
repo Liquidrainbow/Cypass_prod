@@ -1,0 +1,469 @@
+@font-face {
+	font-family: "CustomFont";
+	src:
+		url("AERO_03.otf") format("opentype"),
+		url("CustomFont.svg#filename") format("svg");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	box-sizing: border-box;
+	--color1: #6ecbf5; 
+	--color2:	#ea00d9;
+	--color3: #d1f7ff;
+	--color4:	#01012b;
+	scrollbar-width: thin;
+  scrollbar-color: var(--color1) var(--color4);
+}
+
+#wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	font: 14px "CustomFont";
+	text-shadow: 2px 2px 2px var(--color4);
+	padding: 0px 15px;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.glitch-img {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(rgba(110, 203, 245,0.3), rgba(234, 0, 217,0.3)), url('background.jpg');
+	background-color: transparent;
+	background-size: cover;
+	background-position: center;
+  background-repeat: no-repeat;
+	z-index: -1;
+	transform: translate3d(0,0,0);
+	background-blend-mode: none;
+	pointer-events: none;
+	filter: brightness(0.85);
+}
+
+.glitch-img::before,
+.glitch-img::after {
+	background: inherit;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.glitch-img::before {
+  animation: glitch-before .5s linear infinite alternate both;
+  content: "";
+}
+
+.glitch-img::after {
+  animation: glitch-after 1s linear infinite alternate both;
+  content: "";
+}
+
+.logo_wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.logo img {
+	height: 35px;
+}
+
+header {
+	text-align: center;
+	margin: 20px 0px;
+}
+
+header h1 {
+	margin-left: .2em;
+	line-height: 35px;
+	font-size: 2.2em;
+	color: var(--color1);
+}
+
+header span {
+	display: inline-block;
+	width: 100%;
+	font-size: 1em;
+	color: var(--color2);
+	text-align: center;
+}
+
+main {
+	width: 100%;
+	font-size: 1em;
+	color: var(--color2);
+}
+
+main p {
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+.field {
+	box-shadow: 0px 0px 5px var(--color1);
+	margin: 1em auto;
+	padding: .1em .7em .7em .7em;
+	border: 2px solid var(--color1);
+	border-radius: 5px;
+}
+
+.field legend{
+	font-size: 25px;
+	margin: 0px auto;
+	text-align: center;
+	color: var(--color1)
+}
+
+input[type=radio] {
+	width: 16px;
+  height: 16px;
+	top: 5px;
+  appearance: none;
+  background: var(--color3);
+  border: 2px solid var(--color4);
+  border-radius: 50%;
+  position: relative;
+	margin-bottom: 3px;;
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  top: 0;
+	border-radius: 50%;
+}
+
+input[type="radio"]:checked::before {
+	background: var(--color2);
+	transition: 0.1s all linear;
+}
+
+.field label {
+	font-size: 18px;
+	margin-left: .5em;
+	color: var(--color1);
+}
+
+.description {
+	color: var(--color1);
+}
+
+.input_block {
+	margin: 10px 0px;
+}
+
+.input_block label {
+	font-size: 16px;
+	display: inline-block;
+}
+
+#digits,
+#results {
+	border-radius: 5px;
+	border: 2px solid var(--color1);
+	background-color: var(--color4);
+	font: 20px "CustomFont";
+	padding: 3px 6px;
+	width: 100px;
+	outline: none;
+	color: var(--color3);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 0;
+}
+
+input[type=number] { 
+	-moz-appearance: textfield;
+	appearance: textfield;
+	margin: 0; 
+}
+
+.generate {
+	display: inline-block;
+	font: 16px "CustomFont";
+	background-color: var(--color2);
+	color: var(--color3);
+	border: none;
+	padding: 10px 15px;
+	margin: 10px 0px;
+	transition: 0.1s all linear;
+}
+
+.generate:hover {
+	cursor: pointer;
+	background-color: var(--color1);
+}
+
+.generate:active {
+	background-color: var(--color2);
+}
+
+#output {
+	visibility: hidden;
+	display: inline-block;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px var(--color1);
+	background-color: var(--color4);
+	width: 100%;
+	height: 170px;
+	overflow: scroll;
+	overflow-x: hidden;
+	margin: 1.5em auto;
+	padding: .5em .7em;
+	color: var(--color3);
+	border: 2px solid var(--color1);
+	scrollbar-width: thin;
+  scrollbar-color: var(--color1) var(--color4);
+}
+
+.res {
+	width: 100%;
+	margin: 0;
+	margin-bottom: .3em;
+	word-wrap: break-word;
+	overflow-y: hidden;
+	user-select: all;
+	animation: animated-text .5s steps(60,end) 0s 1 normal both;
+}
+
+.output_text {
+	visibility: hidden;
+}
+
+.output_text h2 {
+	text-align: center;
+	font-weight: normal;
+}
+
+#copybutton {
+	display: block;
+	visibility: hidden;
+	margin-top: 10px;
+	background-color: var(--color1);
+	border: none;
+  color: var(--color3);
+  padding: 10px;
+  text-align: center;
+	text-decoration: none;
+  font: 14px "CustomFont";
+	transition: 0.1s all linear;
+}
+
+#copybutton:hover {
+	background-color: var(--color2);
+	cursor: pointer;
+}
+
+#copybutton:active {
+	background-color: var(--color1);
+	color: var(--color3);
+}
+
+footer {
+	font-size: 20px;
+	color: var(--color2);
+	margin: 0px 0px 20px 0px;
+}
+
+.hex_redir {
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	color: #05d9e8;
+}
+
+.hex_redir img{
+	height: 35px;
+	margin: 0px 5px;
+}
+
+.links_block {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 45vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255,42,109,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ff2a6d;
+  margin: auto auto;
+  border: 2px solid var(--color3);
+  width: 300px;
+	color: var(--color3);
+}
+
+.modal_text {
+	padding: 10px;
+	margin: 0;
+}
+
+.varning_head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 2px solid var(--color3);
+	padding: 10px;
+}
+
+.varning_head p {
+	margin: 0;
+}
+
+/* The Close Button */
+.close {
+	position: relative;
+	top: -2px;
+	line-height: 15px;
+  color: var(--color3);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes animated-text {
+  from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes glitch-before {
+  0% {
+    clip-path: polygon(0% 74.8709879456%, 100% 74.8709879456%, 100% 82.7523719933%, 0% 82.7523719933%);
+    transform: translate(-7.5033529943%, -0.409225127%);
+		filter: hue-rotate(200deg);
+  }
+  2% {
+    clip-path: polygon(0% 73.8815091281%, 100% 73.8815091281%, 100% 75.5197491754%, 0% 75.5197491754%);
+    transform: translate(5.0527135196%, 0.3787335316%);
+  }
+  4% {
+    clip-path: polygon(0% 17.0448267606%, 100% 17.0448267606%, 100% 26.5065375871%, 0% 26.5065375871%);
+    transform: translate(-5.1410218666%, 0.2072417028%);
+  }
+  6% {
+    clip-path: polygon(0% 22.6597399964%, 100% 22.6597399964%, 100% 24.8162783052%, 0% 24.8162783052%);
+    transform: translate(-5.099812873%, -0.2167647751%);
+  }
+  8% {
+    clip-path: polygon(0% 24.2569556224%, 100% 24.2569556224%, 100% 29.1885991684%, 0% 29.1885991684%);
+    transform: translate(-4.2749613471%, -0.2263725911%);
+
+  }
+  10% {
+    clip-path: polygon(0% 2.7216640646%, 100% 2.7216640646%, 100% 10.0936173849%, 0% 10.0936173849%);
+    transform: translate(-6.2770010749%, -0.4155245148%);
+  }
+  12% {
+    clip-path: polygon(0% 46.7495678414%, 100% 46.7495678414%, 100% 52.2685311339%, 0% 52.2685311339%);
+    transform: translate(-0.1693449525%, -0.0075370652%);
+  }
+  14% {
+    clip-path: polygon(0% 24.3416613041%, 100% 24.3416613041%, 100% 30.4438984069%, 0% 30.4438984069%);
+    transform: translate(-7.8946040444%, -0.0069741091%);
+  }
+  16% {
+    clip-path: polygon(0% 48.5782380559%, 100% 48.5782380559%, 100% 51.2699370709%, 0% 51.2699370709%);
+    transform: translate(-7.046703894%, 0.172201106%);
+  }
+  18% {
+    clip-path: polygon(0% 20.0183730983%, 100% 20.0183730983%, 100% 27.6134735809%, 0% 27.6134735809%);
+    transform: translate(-6.2887619135%, 0.4434113882%);
+  }
+  20%, 100% {
+    clip-path: none;
+    transform: none;
+  }
+}
+
+@keyframes glitch-after {
+  0% {
+    clip-path: polygon(0% 83.9356285964%, 100% 83.9356285964%, 100% 88.469058361%, 0% 88.469058361%);
+    transform: translate(-1.9570619246%, 0.2267688206%);
+  }
+  2% {
+    clip-path: polygon(0% 62.2365916767%, 100% 62.2365916767%, 100% 66.1804364556%, 0% 66.1804364556%);
+    transform: translate(3.5048434336%, -0.297174353%);
+  }
+  4% {
+    clip-path: polygon(0% 42.3415441069%, 100% 42.3415441069%, 100% 43.4238367345%, 0% 43.4238367345%);
+    transform: translate(-0.8084430008%, 0.3824215609%);
+  }
+  6% {
+    clip-path: polygon(0% 4.2306442137%, 100% 4.2306442137%, 100% 7.4524175297%, 0% 7.4524175297%);
+    transform: translate(3.0757112656%, 0.2778451783%);
+  }
+  8% {
+    clip-path: polygon(0% 88.6910877974%, 100% 88.6910877974%, 100% 90.840097976%, 0% 90.840097976%);
+    transform: translate(-4.7313291383%, -0.1944831187%);
+  }
+  10% {
+    clip-path: polygon(0% 36.8578870971%, 100% 36.8578870971%, 100% 44.1990525395%, 0% 44.1990525395%);
+    transform: translate(-2.2279920516%, 0.28468217%);
+  }
+  12% {
+    clip-path: polygon(0% 3.432171984%, 100% 3.432171984%, 100% 10.2734786253%, 0% 10.2734786253%);
+    transform: translate(-3.7418099957%, -0.2076642919%);
+  }
+  14% {
+    clip-path: polygon(0% 44.2975341934%, 100% 44.2975341934%, 100% 52.2314231658%, 0% 52.2314231658%);
+    transform: translate(-4.3016405099%, 0.1817744154%);
+  }
+  16% {
+    clip-path: polygon(0% 10.6428717585%, 100% 10.6428717585%, 100% 14.6041215927%, 0% 14.6041215927%);
+    transform: translate(0.9316287383%, 0.4487457463%);
+  }
+  18% {
+    clip-path: polygon(0% 70.5421583061%, 100% 70.5421583061%, 100% 75.5436250164%, 0% 75.5436250164%);
+    transform: translate(0.8131336306%, -0.2276413769%);
+  }
+	20% {
+		clip-path: polygon(0% 80.6428717585%, 100% 40.6428717585%, 100% 14.6041215927%, 0% 14.6041215927%);
+    transform: translate(0.9316287383%, 0.4487457463%);
+	}
+  22%, 100% {
+    clip-path: none;
+    transform: none;
+  }
+}
