@@ -359,6 +359,13 @@ footer {
   cursor: pointer;
 }
 
+footer p {
+	font-size: .6em;
+	text-align: center;
+	margin-top: 10px;
+	color: var(--color1);
+}
+
 @keyframes animated-text {
   from {
 		width: 0;
