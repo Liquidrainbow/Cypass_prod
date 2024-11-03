@@ -1,2 +1,2 @@
-My first learning project and for fun.
+My first learning project for fun.
 Online password generator and hex number generator.
