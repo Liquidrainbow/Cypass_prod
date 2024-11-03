@@ -394,7 +394,7 @@ footer {
 
 @media (pointer: fine) {
 	#genbutton:hover, #copybutton:hover {
-		background-color: var(--color2);
+		background-color: var(--color1);
 		cursor: pointer;
 	}
 	#genbutton:active, #copybutton:active {
@@ -404,7 +404,7 @@ footer {
 
 @media (pointer: coarse) {
 	#genbutton:hover {
-		background-color: var(--color4);
+		background-color: var(--color2);
 	}
 	#genbutton:active {
 		background-color: var(--color1);
@@ -422,7 +422,6 @@ footer {
 @media (max-width: 810px) {
 	
 }
-	
 
 @media (max-width: 768px) {
 	.container {
@@ -446,17 +445,7 @@ footer {
 		line-height: 14px;
 		top:2px;
 	}
-	
-	input[type="checkbox"]:checked::before {
-		#width: 4px;
-		#height: 4px;
-	}
-	
-	input[type="radio"]:checked::before {
-		#width: 4px;
-		#height: 4px;
-	}
-	
+
 	#gendiv p {
 		font: 14px "CustomFont";
 	}
